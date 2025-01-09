@@ -5,7 +5,7 @@ name: ToDo-List-App
 
 on:
   push:
-    branches: [ "todo-app-ver-01" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "todo-app-ver-01" ]
 
