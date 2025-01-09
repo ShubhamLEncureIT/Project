@@ -6,7 +6,9 @@ import { Footer } from "./MyComponents/Footer";
 import Header from "./MyComponents/Header";
 import { Todos } from "./MyComponents/Todos";
 
+import About from "./MyComponents/About";
 
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 //  import ReactExample from "./MyComponents/Counter";
 
@@ -68,29 +70,33 @@ export default function App() {
 
   return (
     <>
-                 {/* <ReactExample />  */}
+      {/* <ReactExample />  */}
 
-      {/* <Router> */}
+      <Router>
 
-        <Header title="My Todos List" searchBar={true} />
-        <Todos todos={todos} onDelete={onDelete} onEdit={editTodo} />
-        <AddTodos addTodo={addTodo} editTodo={currentTodo} />
+        <Header title="My Todos List" searchBar={true}/>
+        {/* <Todos todos={todos} onDelete={onDelete} onEdit={editTodo} />
+        <AddTodos addTodo={addTodo} editTodo={currentTodo} /> */}
 
-        {/* <Routes>   */}
+        <Routes>  
                     
-          {/* <Route path="/" element={ <Todos todos={todos} /> } />
+          <Route path="/" element={ <Todos todos={todos} /> } />
+          
+          {currentTodo === null ? (
+            <Route path="/add" element={ <AddTodos addTodo={addTodo} editTodo={currentTodo} /> } /> 
+          ):(
+            <Route path="/add" element={ <AddTodos addTodo={addTodo} editTodo={currentTodo} /> } />
+          )}
 
-          <Route path="/add" element={ <AddTodos addTodo={addTodo} editTodo={editTodo} /> } /> */}
+          <Route path="/delete" element={ <Todos todos={todos} onDelete={onDelete} onEdit={editTodo}/> } />
 
-          {/* <Route path="/delete" element={ <Todos todos={todos} onDelete={onDelete} onEdit={editTodo}/> } />
+          <Route path="/about" element={<About />} /> 
 
-          <Route path="/about" element={<About />} /> */}
-
-        {/* </Routes> */}
+        </Routes> 
 
         <Footer />
 
-      {/* </Router> */}
+      </Router>
     </>
   );
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Header(props) {
-  // const location = useLocation();
-  // const isActive = (path) => location.pathname === path;
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path;
   const { searchBar } = props;
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -11,7 +12,7 @@ export default function Header(props) {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
 
-          {/* <li className="nav-item">
+          <li className="nav-item">
             <Link className={` nav-link ${isActive("/") ? "active" : ""} `} to="/">{props.title} </Link>
           </li>
 
@@ -25,7 +26,7 @@ export default function Header(props) {
 
           <li className="nav-item">
             <Link className={` nav-link ${isActive("/about") ? "active" : ""} `} to="/about">About</Link>
-          </li> */}
+          </li>
 
         </ul>
         

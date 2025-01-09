@@ -15,6 +15,10 @@ export const TodoItems = (props) => {
     textAlign: "left",
   };  
 
+  const onEdit = (todo) => {    
+    props.onEdit(todo)
+  }
+
   return (
     <div>
       <table>
@@ -38,7 +42,7 @@ export const TodoItems = (props) => {
               <td style={tableCellStyle}>{todo.desc}</td>
               {props.onDelete!=null &&
                 <td>
-                  <button className='btn btn-sm btn-outline-primary' onClick={()=>{props.onEdit(todo)}}>Edit</button>
+                  <button className='btn btn-sm btn-outline-primary' onClick={()=>{onEdit(todo)}}>Edit</button>
 
                   <button className='btn btn-sm btn-danger' onClick={()=>{props.onDelete(todo)}}>Delete</button>
                 </td>
